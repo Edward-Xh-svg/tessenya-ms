@@ -1,167 +1,295 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Site Unavailable — Tessenya</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Favicon (tab image) -->
-  <link rel="icon" type="image/png" href="/attachments/tab-image.png">
+<title>Tessenya</title>
 
-  <!-- Google Font: Saira (Latin) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<!-- Tab icon -->
+<link rel="icon" type="image/png" href="/attachments/tab-image.png">
 
-  <style>
-    /* GTK-inspired system theme variables */
-    :root {
-      --bg: #f5f5f5;
-      --surface: #ffffff;
-      --on-surface: #1a1a1a;
-      --muted: #666666;
-      --border: #e0e0e0;
-      --shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
-      --radius: 28px;
-    }
+<!-- Saira font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #1e1e1e;
-        --surface: #2c2c2c;
-        --on-surface: #f0f0f0;
-        --muted: #a0a0a0;
-        --border: #3a3a3a;
-        --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-      }
-    }
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
 
-    body {
-      font-family: 'Saira', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--on-surface);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      transition: background 0.3s, color 0.3s;
-      padding: 1.5rem;
-    }
+:root{
 
-    /* Elegant card with GTK feel */
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 3.5rem 3rem;
-      box-shadow: var(--shadow);
-      text-align: center;
-      max-width: 540px;
-      width: 100%;
-      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
-      animation: riseIn 0.7s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
-      opacity: 0;
-    }
+    --bg:#F6F3EE;
+    --surface:#FFFFFF;
 
-    @keyframes riseIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+    --text:#1C1C1C;
+    --muted:#666666;
 
-    .brand-logo {
-      width: 110px;
-      height: auto;
-      margin-bottom: 2rem;
-      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.08));
-      transition: transform 0.2s;
-    }
+    --border:#E7E2DB;
 
-    .brand-logo:hover {
-      transform: scale(1.03);
-    }
+    --radius:36px;
 
-    .divider {
-      width: 60px;
-      height: 3px;
-      background: var(--on-surface);
-      opacity: 0.15;
-      margin: 0 auto 1.5rem;
-      border-radius: 3px;
-    }
+}
 
-    h1 {
-      font-size: 1.9rem;
-      font-weight: 600;
-      letter-spacing: -0.3px;
-      margin-bottom: 0.8rem;
-      color: var(--on-surface);
-      line-height: 1.3;
-    }
+@media (prefers-color-scheme:dark){
 
-    .description {
-      font-size: 1.1rem;
-      color: var(--muted);
-      margin-bottom: 2.2rem;
-      line-height: 1.7;
-      font-weight: 400;
-    }
+:root{
 
-    .footer {
-      font-size: 0.9rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
-      margin-top: 0.5rem;
-    }
+    --bg:#141414;
 
-    .footer a {
-      color: var(--on-surface);
-      text-decoration: none;
-      font-weight: 500;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
+    --surface:#1B1B1B;
 
-    .footer a:hover {
-      border-bottom-color: var(--on-surface);
-    }
-  </style>
+    --text:#F7F7F7;
+
+    --muted:#9D9D9D;
+
+    --border:#2A2A2A;
+
+}
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:'Saira',sans-serif;
+
+background:var(--bg);
+
+color:var(--text);
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:40px;
+
+overflow:hidden;
+
+}
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:700px;
+
+height:700px;
+
+background:radial-gradient(circle,
+rgba(210,185,150,.18),
+transparent 70%);
+
+top:-250px;
+right:-250px;
+
+pointer-events:none;
+
+}
+
+.card{
+
+width:min(720px,100%);
+
+background:var(--surface);
+
+border:1px solid var(--border);
+
+border-radius:var(--radius);
+
+padding:80px;
+
+text-align:center;
+
+animation:fadeIn .9s ease;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+.logo{
+
+width:120px;
+
+margin-bottom:42px;
+
+user-select:none;
+
+}
+
+.badge{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:12px 20px;
+
+border-radius:999px;
+
+background:rgba(0,0,0,.04);
+
+font-size:.95rem;
+
+margin-bottom:36px;
+
+}
+
+@media(prefers-color-scheme:dark){
+
+.badge{
+
+background:rgba(255,255,255,.05);
+
+}
+
+}
+
+.dot{
+
+width:8px;
+
+height:8px;
+
+border-radius:50%;
+
+background:#D5A25B;
+
+}
+
+h1{
+
+font-size:clamp(2.5rem,5vw,4rem);
+
+font-weight:600;
+
+line-height:1.15;
+
+letter-spacing:-1.5px;
+
+margin-bottom:25px;
+
+}
+
+.description{
+
+font-size:1.15rem;
+
+line-height:1.9;
+
+color:var(--muted);
+
+max-width:520px;
+
+margin:auto;
+
+}
+
+.footer{
+
+margin-top:60px;
+
+padding-top:30px;
+
+border-top:1px solid var(--border);
+
+font-size:.95rem;
+
+color:var(--muted);
+
+}
+
+.footer a{
+
+color:inherit;
+
+text-decoration:none;
+
+}
+
+.footer a:hover{
+
+opacity:.7;
+
+}
+
+</style>
+
 </head>
+
 <body>
-  <div class="card">
-    <!-- Brand Logo -->
-    <img src="/attachments/brand.png" alt="Tessenya Logo" class="brand-logo">
 
-    <!-- Divider for visual elegance -->
-    <div class="divider"></div>
+<div class="card">
 
-    <!-- Main Heading -->
-    <h1>This site is currently unavailable.</h1>
+<img
+src="/attachments/brand.png"
+alt="Tessenya"
+class="logo">
 
-    <!-- Subtext -->
-    <p class="description">
-      We are working on something great.<br>
-      Please check back soon.
-    </p>
+<div class="badge">
 
-    <!-- Footer with copyright and support email -->
-    <div class="footer">
-      © Tessenya Inc. &nbsp;|&nbsp;
-      <a href="mailto:support@ivanova.sbs">support@ivanova.sbs</a>
-    </div>
-  </div>
+<div class="dot"></div>
+
+Temporarily unavailable
+
+</div>
+
+<h1>
+Something remarkable is being built.
+</h1>
+
+<p class="description">
+
+Tessenya is currently unavailable while we prepare the next generation of AI experiences.
+
+Please check back soon.
+
+</p>
+
+<div class="footer">
+
+© 2026 Tessenya Inc.
+
+&nbsp;&nbsp;·&nbsp;&nbsp;
+
+<a href="mailto:support@ivanova.sbs">
+support@ivanova.sbs
+</a>
+
+</div>
+
+</div>
+
 </body>
 </html>
